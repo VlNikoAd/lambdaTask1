@@ -10,16 +10,7 @@ public class Calculator {
     BinaryOperator<Integer> minus = (x, y) -> x - y;
     BinaryOperator<Integer> multiply = (x, y) -> x * y;
 
-    BinaryOperator<Integer> divide = (x, y) -> {
-        int result = 0;
-        try {
-            result = x / y;
-        } catch (ArithmeticException e) {
-            System.out.println(
-                    "Нельзя делить на ноль!" + e.getMessage());
-        }
-        return result;
-    };
+    BinaryOperator<Integer> divide = (x, y) -> y == 0 ? 0 : x / y;
 
     UnaryOperator<Integer> pow = x -> x * x;
     UnaryOperator<Integer> abc = x -> x > 0 ? x : x * -1;
